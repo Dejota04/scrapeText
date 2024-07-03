@@ -67,10 +67,13 @@ namespace ScrapeText
 
 
                     //Corpo
-                    var corpoElement = htmlDocument.DocumentNode.SelectSingleNode("//div[@class='c-news__body']");
-                    var corpo = corpoElement.InnerText.Trim();
+                    var corpoElement = htmlDocument.DocumentNode.SelectNodes("//div[@class='c-news__body']/p");
+                    
                     Console.WriteLine(" ");
-                    Console.WriteLine(corpo);
+                    foreach (var node in corpoElement)
+                    {
+                        Console.WriteLine(node.InnerText.Trim());
+                    }
                     Console.WriteLine(" ");
                     Console.WriteLine("-----------------------------------------------------------------");
 
